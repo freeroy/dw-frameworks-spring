@@ -10,7 +10,7 @@
 	<artifactId>dw-frameworks-spring</artifactId>
 	<packaging>jar</packaging>
 	<name>dw-frameworks-spring</name>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<description>spring框架扩展包</description>
 	
 	<!-- scm配置 -->
