@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.developerworld.frameworks</groupId>
 		<artifactId>dw-frameworks-parent</artifactId>
-		<version>0.0.1</version>
+		<version>0.0.2</version>
 	</parent>
 
 	<artifactId>dw-frameworks-spring</artifactId>
@@ -24,55 +24,39 @@
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
-			<version>2.6</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.developerworld.commons</groupId>
 			<artifactId>dw-commons-servlet</artifactId>
-			<version>0.0.1</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.developerworld.commons</groupId>
 			<artifactId>dw-commons-dbutils</artifactId>
-			<version>0.0.1</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>3.2.14.RELEASE</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>3.2.14.RELEASE</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 		  <groupId>org.hibernate</groupId>
 		  <artifactId>hibernate-core</artifactId>
-		  <version>3.6.10.Final</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.5.4</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
-			<version>2.4</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
-			<version>2.0</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
