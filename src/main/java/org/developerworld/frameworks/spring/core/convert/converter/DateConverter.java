@@ -6,6 +6,7 @@ import java.util.Date;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.developerworld.commons.lang.StringUtils;
 import org.springframework.core.convert.converter.Converter;
 
 /**
@@ -16,22 +17,25 @@ import org.springframework.core.convert.converter.Converter;
  * 
  */
 public class DateConverter implements Converter<String, Date> {
-	
-	private final static Log log=LogFactory.getLog(DateConverter.class);
+
+	private final static Log log = LogFactory.getLog(DateConverter.class);
 
 	public Date convert(String source) {
-		SimpleDateFormat dateFormat = null;
-		if (source.indexOf(" ") != -1)
-			dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		else
-			dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		dateFormat.setLenient(false);
-		try {
-			return dateFormat.parse(source);
-		} catch (ParseException e) {
-			log.warn(e);
-			return null;
+		Date rst = null;
+		if (StringUtils.isNotBlank(source)) {
+			SimpleDateFormat dateFormat = null;
+			if (source.indexOf(" ") != -1)
+				dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			else
+				dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			dateFormat.setLenient(false);
+			try {
+				rst = dateFormat.parse(source);
+			} catch (ParseException e) {
+				log.warn(e);
+			}
 		}
+		return rst;
 	}
 
 }
