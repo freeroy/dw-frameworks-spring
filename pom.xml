@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.developerworld.frameworks</groupId>
 		<artifactId>dw-frameworks-parent</artifactId>
-		<version>0.0.8</version>
+		<version>0.0.10</version>
 		<relativePath>../dw-frameworks-parent/pom.xml</relativePath>
 	</parent>
 
@@ -23,10 +23,6 @@
 		
 	<dependencies>
 		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.developerworld.commons</groupId>
 			<artifactId>dw-commons-servlet</artifactId>
 		</dependency>
@@ -35,20 +31,29 @@
 			<artifactId>dw-commons-dbutils</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-		</dependency>
-		<dependency>
-		  <groupId>org.hibernate</groupId>
-		  <artifactId>hibernate-core</artifactId>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+		  	<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
+		  	<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		  	<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+		  	<scope>provided</scope>
+		</dependency>
+		<dependency>
+		  <groupId>org.hibernate</groupId>
+		  <artifactId>hibernate-core</artifactId>
+		  <scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>

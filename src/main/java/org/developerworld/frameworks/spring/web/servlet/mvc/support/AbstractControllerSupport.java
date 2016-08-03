@@ -16,6 +16,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -26,18 +27,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @version 20111230
  * 
  */
-public abstract class AbstractControllerSupport implements
-		ApplicationContextAware {
+public abstract class AbstractControllerSupport implements ApplicationContextAware {
 
-	private final static Log log = LogFactory
-			.getLog(AbstractControllerSupport.class);
+	private final static Log log = LogFactory.getLog(AbstractControllerSupport.class);
 
 	private ObjectMapper objectMapper = new ObjectMapper();
 
 	private ApplicationContext context;
 
-	public void setApplicationContext(ApplicationContext context)
-			throws BeansException {
+	public void setApplicationContext(ApplicationContext context) throws BeansException {
 		this.context = context;
 	}
 
@@ -161,12 +159,9 @@ public abstract class AbstractControllerSupport implements
 	 */
 	protected Locale getLocale() {
 		Locale rst = null;
-		RequestAttributes requestAttributes = RequestContextHolder
-				.getRequestAttributes();
-		if (requestAttributes != null
-				&& requestAttributes instanceof ServletRequestAttributes) {
-			HttpServletRequest request = ((ServletRequestAttributes) requestAttributes)
-					.getRequest();
+		RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+		if (requestAttributes != null && requestAttributes instanceof ServletRequestAttributes) {
+			HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
 			if (request != null)
 				rst = getLocale(request);
 		}
@@ -190,14 +185,30 @@ public abstract class AbstractControllerSupport implements
 
 	/**
 	 * 把数据转化成json字符串
+	 * 
 	 * @param object
 	 * @return
 	 * @throws JsonGenerationException
 	 * @throws JsonMappingException
 	 * @throws IOException
 	 */
-	protected String objectToJsonString(Object object) throws JsonGenerationException,
-			JsonMappingException, IOException {
+	protected String objectToJsonString(Object object)
+			throws JsonGenerationException, JsonMappingException, IOException {
 		return objectMapper.writeValueAsString(object);
+	}
+
+	/**
+	 * 把json转换为对象
+	 * 
+	 * @param json
+	 * @param objectClass
+	 * @return
+	 * @throws JsonParseException
+	 * @throws JsonMappingException
+	 * @throws IOException
+	 */
+	protected String jsonStringToObject(String json, Class objectClass)
+			throws JsonParseException, JsonMappingException, IOException {
+		return objectMapper.readValue(json, objectClass);
 	}
 }
