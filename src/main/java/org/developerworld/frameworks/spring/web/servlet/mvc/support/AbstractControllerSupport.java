@@ -199,7 +199,6 @@ public abstract class AbstractControllerSupport implements ApplicationContextAwa
 
 	/**
 	 * 把json转换为对象
-	 * 
 	 * @param json
 	 * @param objectClass
 	 * @return
@@ -207,7 +206,7 @@ public abstract class AbstractControllerSupport implements ApplicationContextAwa
 	 * @throws JsonMappingException
 	 * @throws IOException
 	 */
-	protected String jsonStringToObject(String json, Class objectClass)
+	protected <T> T jsonStringToObject(String json, Class<T> objectClass)
 			throws JsonParseException, JsonMappingException, IOException {
 		return objectMapper.readValue(json, objectClass);
 	}
